@@ -3,17 +3,14 @@
     font-family: "courier";
 }
 
-#search-label {
-    font-size: 1.5rem;
+.search-label {
+    font-size: 1.2rem;
     font-weight: bolder;
+    text-shadow: 1px 1px gray;
 }
 
-#searchbox {
-    border: 2px solid black;
-    box-shadow: 3px 3px 3px black;
-}
-
-.btn {
+.searchbox {
+    width: 50%;
     border: 2px solid black;
     box-shadow: 3px 3px 3px black;
 }

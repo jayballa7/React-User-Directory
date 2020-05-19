@@ -11,7 +11,8 @@ export default class Table extends Component {
                  login: '', name: '', email: '', phone: '', location: ''
                }
             ],
-            results: []
+            results: [],
+            searchResults: []
          }
    }
     firstResults = [];

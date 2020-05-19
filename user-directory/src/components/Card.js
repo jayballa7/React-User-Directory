@@ -22,7 +22,7 @@ function Card() {
   return (
     <div className = "container-fluid">
         <div className = "row text-center">
-            <div className = "col-md-6 offset-md-3 col-sm-12">
+            <div className = "col-md-8 offset-md-3 col-sm-12">
                <Search />
             </div>
         </div>
