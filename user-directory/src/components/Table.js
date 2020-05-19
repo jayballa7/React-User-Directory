@@ -17,7 +17,7 @@ export default class Table extends Component {
     firstResults = [];
 
     headers = [
-       {name: 'Name'},
+       {name: 'Name <>'},
        {name: 'Email'},
        {name: 'Phone #'},
        {name: 'Location'}
