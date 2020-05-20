@@ -12,7 +12,11 @@ export default class Table extends Component {
                  login: '', name: '', email: '', phone: '', location: ''
                }
             ],
-            searchResults: []
+            // searchResults: [
+            //    {
+            //      login: '', name: '', email: '', phone: '', location: ''
+            //    }
+            // ]
          }
    }
     firstResults = [];
@@ -57,11 +61,27 @@ export default class Table extends Component {
          [name] : value
       }, () => {
      this.setState({
-       employees: this.state.employees.filter(employee => employee.name.last.toLowerCase().includes(this.state.search.toLowerCase()))
+      //  employees: this.state.employees.filter(employee => employee.name.last.toLowerCase().includes(this.state.search.toLowerCase()))
+      employees: this.state.employees.filter(employee => employee.name.last.toLowerCase().startsWith(this.state.search.toLowerCase()) || employee.name.first.toLowerCase().startsWith(this.state.search.toLowerCase()))
      })
- 
    })
    }
+
+   // renderFilteredData() {
+   //    return this.state.searchResults.map((employees) => {
+   //       const {login, name, email, phone, location} = employees
+   //          if(login.uuid !== undefined) { 
+   //             return (
+   //                <tr key = {login.uuid}>
+   //                   <td className = "dataStyle">{name.last}, {name.first}</td>
+   //                   <td className = "dataStyle">{email}</td>
+   //                   <td className = "dataStyle">{phone}</td>
+   //                   <td className = "dataStyle">{location.city + ", " + location.state}</td>
+   //                </tr>
+   //             )
+   //          }
+   //    })
+   // }
 
    renderTableData() {
       return this.state.employees.map((employees) => {
