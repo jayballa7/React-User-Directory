@@ -1,6 +1,5 @@
 import React from "react";
 import Table from "./Table";
-import Search from "./Search";
 
 const styles = {
   cardStyles: {
@@ -21,11 +20,6 @@ const styles = {
 function Card() {
   return (
     <div className = "container-fluid">
-        <div className = "row text-center">
-            <div className = "col-md-8 offset-md-3 col-sm-12">
-               <Search />
-            </div>
-        </div>
         <div className = "row text-center">
             <div className = "col-md-8 offset-md-2 col-sm-12">
                 <div style={styles.cardStyles} className="card">

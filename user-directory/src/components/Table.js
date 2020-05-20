@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/employees-api";
 import "../styles/Table.css";
+import Search from "./Search.js";
 
 export default class Table extends Component {
    constructor(props) {
@@ -11,7 +12,6 @@ export default class Table extends Component {
                  login: '', name: '', email: '', phone: '', location: ''
                }
             ],
-            results: [],
             searchResults: []
          }
    }
@@ -50,6 +50,19 @@ export default class Table extends Component {
       })
   }
 
+  filterEmp = event => {
+   const value = event.target.value;
+   const name = event.target.name;
+      this.setState({
+         [name] : value
+      }, () => {
+     this.setState({
+       employees: this.state.employees.filter(employee => employee.name.last.toLowerCase().includes(this.state.search.toLowerCase()))
+     })
+ 
+   })
+   }
+
    renderTableData() {
       return this.state.employees.map((employees) => {
          const {login, name, email, phone, location} = employees
@@ -70,6 +83,7 @@ export default class Table extends Component {
       // const { data } = this.props;
       return (
          <div>
+            <Search filterEmp={this.filterEmp} value={this.state.search}/>
             <table className = "table">
                <thead>
                   <tr>
