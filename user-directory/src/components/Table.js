@@ -37,7 +37,7 @@ export default class Table extends Component {
       .catch(err => console.log(err));
    };
 
-   sortName = (event) => {
+   sortName = event => {
       this.setState({
         sort: !this.state.sort
       }, () => {
@@ -67,23 +67,6 @@ export default class Table extends Component {
      })
    })
    };
-
-   // onKeyUp = event => {
-   //    // This would have the current value after hitting backspace.
-
-   //       const value = event.target.value;
-   //       const name = event.target.name;
-   //          this.setState({
-   //             [name] : value
-   //          }, () => {
-   //         this.setState({
-   //          employees: this.state.employees.filter(employee => employee.name.last.toLowerCase().startsWith(this.state.search.toLowerCase()) || employee.name.first.toLowerCase().startsWith(this.state.search.toLowerCase()))
-   //         })
-   //       })
-      
-   //  };
-
-   
 
    renderTableData() {
       if(this.state.search === '') {
@@ -120,7 +103,6 @@ export default class Table extends Component {
   
 
    render() {
-      // const { data } = this.props;
       return (
          <div>
             <Search filterEmp={this.filterEmp} value={this.state.search}/>
