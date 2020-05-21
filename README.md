@@ -4,22 +4,22 @@ An app created with React to maintain a list of employees.
 Link to the deployed app: 
 
 # Table of contents
-#general-info
-#technologies
-#features
-#status
-#inspiration
-#contact
+* general-info
+* technologies
+* features
+* status
+* inspiration
+* contact
 
 # General info
 This app was created using Node.js and React. It allows the user to keep track of their employees information and allow them to sort and filter.
 
 # Technologies
-Visual Studio Code
-Github
-Git Bash
-Node.js
-React
+* Visual Studio Code
+* Github
+* Git Bash
+* Node.js
+* React
 
 # Features
 List of features ready:
@@ -29,7 +29,7 @@ List of features ready:
 * The user is able to see the list change if they type more or backspace.
 
 # Status
-Complete.
+Complete, but could add more features such as filtering other fields.
 
 # Inspiration
 Thanks to my dad who helped me figure out how to filter the table.
