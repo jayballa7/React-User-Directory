@@ -12,11 +12,12 @@ export default class Table extends Component {
                  login: '', name: '', email: '', phone: '', location: ''
                }
             ],
-            // searchResults: [
-            //    {
-            //      login: '', name: '', email: '', phone: '', location: ''
-            //    }
-            // ]
+            search: '',
+            searchResults: [
+               {
+                  login: '', name: '', email: '', phone: '', location: ''
+                }
+            ]
          }
    }
     firstResults = [];
@@ -34,7 +35,7 @@ export default class Table extends Component {
          this.firstResults = res.data.results
       })
       .catch(err => console.log(err));
-   }
+   };
 
    sortName = (event) => {
       this.setState({
@@ -52,7 +53,8 @@ export default class Table extends Component {
           })
         }
       })
-  }
+  };
+
 
   filterEmp = event => {
    const value = event.target.value;
@@ -61,29 +63,30 @@ export default class Table extends Component {
          [name] : value
       }, () => {
      this.setState({
-      //  employees: this.state.employees.filter(employee => employee.name.last.toLowerCase().includes(this.state.search.toLowerCase()))
-      employees: this.state.employees.filter(employee => employee.name.last.toLowerCase().startsWith(this.state.search.toLowerCase()) || employee.name.first.toLowerCase().startsWith(this.state.search.toLowerCase()))
+      searchResults: this.state.employees.filter(employee => employee.name.last.toLowerCase().startsWith(this.state.search.toLowerCase()) || employee.name.first.toLowerCase().startsWith(this.state.search.toLowerCase()))
      })
    })
-   }
+   };
 
-   // renderFilteredData() {
-   //    return this.state.searchResults.map((employees) => {
-   //       const {login, name, email, phone, location} = employees
-   //          if(login.uuid !== undefined) { 
-   //             return (
-   //                <tr key = {login.uuid}>
-   //                   <td className = "dataStyle">{name.last}, {name.first}</td>
-   //                   <td className = "dataStyle">{email}</td>
-   //                   <td className = "dataStyle">{phone}</td>
-   //                   <td className = "dataStyle">{location.city + ", " + location.state}</td>
-   //                </tr>
-   //             )
-   //          }
-   //    })
-   // }
+   // onKeyUp = event => {
+   //    // This would have the current value after hitting backspace.
+
+   //       const value = event.target.value;
+   //       const name = event.target.name;
+   //          this.setState({
+   //             [name] : value
+   //          }, () => {
+   //         this.setState({
+   //          employees: this.state.employees.filter(employee => employee.name.last.toLowerCase().startsWith(this.state.search.toLowerCase()) || employee.name.first.toLowerCase().startsWith(this.state.search.toLowerCase()))
+   //         })
+   //       })
+      
+   //  };
+
+   
 
    renderTableData() {
+      if(this.state.search === '') {
       return this.state.employees.map((employees) => {
          const {login, name, email, phone, location} = employees
             if(login.uuid !== undefined) { 
@@ -96,9 +99,26 @@ export default class Table extends Component {
                   </tr>
                )
             }
-      })
+      }) 
+      }
+      else {
+         return this.state.searchResults.map((employees) => {
+            const {login, name, email, phone, location} = employees
+               if(login.uuid !== undefined) { 
+                  return (
+                     <tr key = {login.uuid}>
+                        <td className = "dataStyle">{name.last}, {name.first}</td>
+                        <td className = "dataStyle">{email}</td>
+                        <td className = "dataStyle">{phone}</td>
+                        <td className = "dataStyle">{location.city + ", " + location.state}</td>
+                     </tr>
+                  )
+               }
+         }) 
+      }
    }
   
+
    render() {
       // const { data } = this.props;
       return (
