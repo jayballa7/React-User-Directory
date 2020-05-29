@@ -1,7 +1,7 @@
 # React Employee Directory
 An app created with React to maintain a list of employees.
 
-Link to the deployed app: 
+Link to the deployed app: https://jayballa7.github.io/React-User-Directory
 
 # Table of contents
 * general-info
